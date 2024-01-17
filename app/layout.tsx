@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,10 +20,34 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <div className="absolute top-0 -z-10 h-full w-full bg-white">
-          <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(51,152,219,0.5)] opacity-50 blur-[80px]" />
+          <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(243,156,18,0.5)] opacity-50 blur-[80px]" />
         </div>
+        <header className="flex py-4 px-6 border border-b-slate-200">
+          <nav className="flex items-center justify-between w-full">
+            <Image  
+              src="/logo.webp"
+              alt="Logo"
+              width={58}
+              height={58}
+            />
+            <ul className="flex gap-4">
+              <li>
+                <Link className="hover:text-blue-700" href="/">Home</Link>
+              </li>
+              <li>
+                <Link className="hover:text-blue-700" href="/contact">Contact</Link>
+              </li>
+              <li>
+                <Link className="hover:text-blue-700" href="/about">About</Link>
+              </li>
+            </ul>
+            <button className="px-5 py-2.5 rounded-lg bg-[#f39c12] text-white hover:bg-[#d79d41]">
+              Go to Home
+            </button>
+          </nav>
+        </header>
         {children}
-        </body>
+      </body>
     </html>
   )
 }
