@@ -1,2 +1,2 @@
 export * from './navbar/navbar'
-export * from './nav-links/nav-links'
+export * from './active-link/active-link'
